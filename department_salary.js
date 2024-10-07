@@ -69,7 +69,7 @@ function calculateDepartmentSalary(departmentName) {
     return totalSalary;
 }
 
-//Haelper function to get individual employees salaries
+//Helper function to get individual employees salaries
 function calculateEmployeeSalary(employee) {
     let total = employee.salary;
 
@@ -82,5 +82,16 @@ return total;
 }
 
 console.log(`The total sales Department Salary is ${calculateDepartmentSalary('Sales')}`)
-console.log(`The total Enginering Departmetn Salray is ${calculateDepartmentSalary('Engineering')}`)
+console.log(`The total Enginering Department Salary is ${calculateDepartmentSalary('Engineering')}`)
 
+// Task 3: Calculate the total Company Salary using a recursive function
+function calculateCompanySalary(company) {
+    let totalSalary = 0;
+
+    company.departments.forEach(department => {
+        totalSalary += calculateDepartmentSalary(department.departmentName);
+    });
+    return totalSalary;
+}
+
+console.log(`The total company salary is ${calculateCompanySalary(company)}.`)
